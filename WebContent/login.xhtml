@@ -8,8 +8,8 @@
 	<title>Login</title>
 </h:head>
 <h:body>
-	<h:outputText value="Centro Empresarial Estagio e Emprego" />
-
+	<h:outputText value="Emprego Facil" />
+	<br/><br/>
 	<h:form>
 		<h:panelGrid columns="2">
 			<h:outputLabel value="Nome: " />
@@ -18,11 +18,11 @@
 			<h:outputLabel value="Senha: " />
 			<h:inputSecret maxlength="12" size="20" />
 		</h:panelGrid>
-
+		<br/><br/>
 		<h:panelGrid columns="2">
-			<h:commandButton value="Entrar" action="vagas.xhtml"/>
-			<h:commandButton value="Recuperar Senha" />
-			<h:commandLink value="Cadastrar" action="CadastroUsuario.xhtml"/>
+			<h:commandButton value="Entrar" action="/pages/principal.xhtml"/>
+			<h:commandButton value="Recuperar Senha" action="esqueciSenha.xhtml"/>
+			<h:commandLink value="Cadastrar" action="cadastroUsuario.xhtml"/>
 		</h:panelGrid>
 	</h:form>
 </h:body>

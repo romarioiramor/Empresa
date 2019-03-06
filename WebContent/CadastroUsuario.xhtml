@@ -2,26 +2,35 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core">
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+
 <title>Cadastro de Usuario</title>
+
+
 </head>
 <body>
 
+
+
+	
 	<h:form>
+	
+		<h:outputLabel value="Novo Cadastro "/>
+		<br/><br/>
 		<h:panelGrid columns="2">
 			<h:outputLabel value="Nome Completo: " />
 			<h:inputText maxlength="80" size="90" />
-		</h:panelGrid>	
-		
+		</h:panelGrid>		
 		<h:panelGrid columns="4">
 			<h:outputLabel value="E-mail: " />
 			<h:inputText maxlength="30" size="50" />
 			<h:outputLabel value="Senha: " />
-			<h:inputSecret maxlength="10" size="37" />
-			
-		</h:panelGrid>
+			<h:inputSecret maxlength="10" size="37" />			
+		</h:panelGrid>		
 		<h:panelGrid columns="6">
 			<h:outputLabel value="CPF: " />
 			<h:inputText maxlength="11" size="25" />
@@ -29,18 +38,16 @@
 			<h:inputText maxlength="10" size="25" />
 			<h:outputLabel value="Celular: " />
 			<h:inputText maxlength="11" size="19" />
-		</h:panelGrid>
-		
+		</h:panelGrid>		
 		<h:panelGrid columns="4">			
 			<h:outputLabel value="Endereco: " />
 			<h:inputText maxlength="100" size="60" />
 			<h:outputLabel value="Bairo: " />
 			<h:inputText maxlength="10" size="24" />
-		</h:panelGrid>
-			
+		</h:panelGrid>		
 		<h:panelGrid columns="6">
 			<h:outputLabel value="Cidade: " />
-			<h:inputText maxlength="20" size="54" />				
+			<h:inputText maxlength="20" size="50" />				
 				<h:outputLabel value="UF: " />
 					<h:selectOneMenu>
 						<f:selectItem />
@@ -52,8 +59,44 @@
 				</h:selectOneMenu>
 			<h:outputLabel value="Cep: " />
 			<h:inputText maxlength="9" size="9" />
-								
-		</h:panelGrid>				
+			<br/><br/>
+		</h:panelGrid>	
+			<h:outputLabel value="Dados Escolares: " />
+			<br/><br/>
+		<h:panelGrid columns="4">
+			<h:outputLabel value="Instituição de Ensino: " />
+			<h:inputText maxlength="20" size="60"/>
+			<h:outputLabel value="Polo: "/>
+			<h:inputText maxlength="20" size="15"/>
+			<h:outputLabel value="Curso: "/>
+			<h:selectOneMenu>
+				<f:selectItem />
+				<f:selectItem itemValue="ADS" itemLabel="Analise e Desenvolvimento de Sistemas "/>
+				<f:selectItem itemValue="ADM" itemLabel="Administração"/>
+				<f:selectItem itemValue="DIR" itemLabel="Direito"/>
+				<f:selectItem itemValue="ARQ" itemLabel="Arquitetura"/>
+			</h:selectOneMenu>
+			<h:outputLabel value="Turno: " />
+			<h:inputText maxlength="10" size="15"/>
+			<h:outputLabel value="Periodo/ Semestre: " />
+			<h:inputText maxlength="10" size="15"/>
+		</h:panelGrid>
+		<h:panelGrid columns="2">	
+			<h:outputLabel value="Previsão de Formatura: " />
+			<h:inputText maxlength="10" size="15"/>
+		</h:panelGrid>
+						
+			<h:outputLabel value="Anexar Curriculo"/>
+
 	</h:form>
+		<h:form enctype="Arquivo">
+    		<p:growl id="messages" showDetail="true" />   
+    		<p:fileUpload value="#{fileUploadView.file}" mode="simple" skinSimple="true"/>   
+   		 <br /> 
+   		 <br />     
+    		<p:commandButton value="Salvar" ajax="false" action="#{fileUploadView.upload}" disabled="true" />
+		</h:form>
+
+
 </body>
 </html>
