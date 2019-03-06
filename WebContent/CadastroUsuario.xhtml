@@ -21,33 +21,29 @@
 	
 		<h:outputLabel value="Novo Cadastro "/>
 		<br/><br/>
-		<h:panelGrid columns="2">
-			<h:outputLabel value="Nome Completo: " />
-			<h:inputText maxlength="80" size="90" />
-		</h:panelGrid>		
 		<h:panelGrid columns="4">
+			<h:outputLabel value="Nome Completo: " />
+			<h:inputText maxlength="200" size="90" />
+		
 			<h:outputLabel value="E-mail: " />
-			<h:inputText maxlength="30" size="50" />
+			<h:inputText maxlength="200" size="50" />
 			<h:outputLabel value="Senha: " />
-			<h:inputSecret maxlength="10" size="37" />			
-		</h:panelGrid>		
-		<h:panelGrid columns="6">
+			<h:inputSecret maxlength="20" size="37" />			
+		
 			<h:outputLabel value="CPF: " />
 			<h:inputText maxlength="11" size="25" />
 			<h:outputLabel value="Telefone: " />
 			<h:inputText maxlength="10" size="25" />
 			<h:outputLabel value="Celular: " />
 			<h:inputText maxlength="11" size="19" />
-		</h:panelGrid>		
-		<h:panelGrid columns="4">			
+					
 			<h:outputLabel value="Endereco: " />
-			<h:inputText maxlength="100" size="60" />
+			<h:inputText maxlength="200" size="60" />
 			<h:outputLabel value="Bairo: " />
-			<h:inputText maxlength="10" size="24" />
-		</h:panelGrid>		
-		<h:panelGrid columns="6">
+			<h:inputText maxlength="50" size="24" />
+		
 			<h:outputLabel value="Cidade: " />
-			<h:inputText maxlength="20" size="50" />				
+			<h:inputText maxlength="50" size="50" />				
 				<h:outputLabel value="UF: " />
 					<h:selectOneMenu>
 						<f:selectItem />
@@ -58,14 +54,14 @@
 						<f:selectItem itemValue="BA" itemLabel="Bahia"/>
 				</h:selectOneMenu>
 			<h:outputLabel value="Cep: " />
-			<h:inputText maxlength="9" size="9" />
+			<h:inputText maxlength="9" size="10" />
 			<br/><br/>
 		</h:panelGrid>	
 			<h:outputLabel value="Dados Escolares: " />
 			<br/><br/>
 		<h:panelGrid columns="4">
 			<h:outputLabel value="Instituição de Ensino: " />
-			<h:inputText maxlength="20" size="60"/>
+			<h:inputText maxlength="200" size="60"/>
 			<h:outputLabel value="Polo: "/>
 			<h:inputText maxlength="20" size="15"/>
 			<h:outputLabel value="Curso: "/>
@@ -77,17 +73,18 @@
 				<f:selectItem itemValue="ARQ" itemLabel="Arquitetura"/>
 			</h:selectOneMenu>
 			<h:outputLabel value="Turno: " />
-			<h:inputText maxlength="10" size="15"/>
+			<h:inputText maxlength="20" size="15"/>
 			<h:outputLabel value="Periodo/ Semestre: " />
-			<h:inputText maxlength="10" size="15"/>
-		</h:panelGrid>
-		<h:panelGrid columns="2">	
+			<h:inputText maxlength="20" size="15"/>
+		
+			
 			<h:outputLabel value="Previsão de Formatura: " />
-			<h:inputText maxlength="10" size="15"/>
+			<h:inputText maxlength="20" size="15"/>
 		</h:panelGrid>
 						
 			<h:outputLabel value="Anexar Curriculo"/>
-
+   		 <br /> 
+   		 <br /> 
 	</h:form>
 		<h:form enctype="Arquivo">
     		<p:growl id="messages" showDetail="true" />   
