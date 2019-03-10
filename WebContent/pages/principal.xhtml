@@ -8,13 +8,118 @@
 	template="/templates/modeloSistema.xhtml">
 
 	<ui:define name="menu">
-		<ui:include src="/includes/menuPrincipal.xhtml" />
-		
+		<ui:include src="/includes/menuSistema.xhtml" />		
 	</ui:define>
-
+	
 	<ui:define name="conteudo">
-	
-		adicionar dados depois....
-	
+		<h:form id="frmUsuListagem">
+			<p:dataTable id="tblUsuarios" widgetVar="tabelaUsuarios"
+				emptyMessage="Nenhum Registro Encontrado!"
+				value="#{MBUsuario.itens}" var="item"
+				filteredValue="#{MBUsuario.itensFiltrados}" paginator="true"
+				rows="8">
+				
+				<f:facet name="header">
+					Lista de Usuarios
+				</f:facet>
+				
+				<p:column headerText="Código" sortBy="#{item.codigo}"
+					filterBy="#{item.codigo}">
+					<h:outputText value="#{item.codigo}" />
+				</p:column>
+				
+				<p:column headerText="Nome" sortBy="#{item.nome}"
+					filterBy="#{item.nome}">
+					<h:outputText value="#{item.nome}" />
+				</p:column>
+				
+				<p:column headerText="Opções">
+					<p:commandButton icon="ui-icon-trash"
+						oncomplete="PF('dlgUsuExcluir').show();"
+						update=":frmUsuExcluir:pnlUsuExcluir">
+						<f:setPropertyActionListener value="#{item}" target="#{MBUsuario.usuario}"/>
+					</p:commandButton>
+					<p:commandButton icon="ui-icon-pencil"
+						oncomplete="PF('dlgUsuEditar').show();"
+						update=":frmUsuEditar:pnlUsuEditar" >
+						<f:setPropertyActionListener value="#{item}" target="#{MBUsuario.usuario}"/>
+						</p:commandButton>
+				</p:column>
+				
+				<f:facet name="footer">
+					<p:commandButton value="Novo Usuario"
+						actionListener="#{MBUsuario.prepararNovo}"
+						oncomplete="PF('dlgUsuNovo').show();"
+						update=":frmUsuNovo:pnlUsuNovo" />
+				</f:facet>								
+			</p:dataTable>					
+		</h:form>
+		
+		<p:dialog widgetVar="dlgUsuNovo" closable="false" draggable="false"
+			resizable="false" modal="true" appendTo="@(body)"
+			header="Novo Usuario">
+			<h:form id="frmUsuNovo">
+				<h:panelGrid id="pnlUsuNovo" columns="2">
+					<p:outputLabel value="Nome" />
+					<p:inputText size="30" maxlength="50"
+						value="#{MBUsuario.usuario.nome}" />
+				</h:panelGrid>
+				<p:panelGrid columns="2">
+					<p:commandButton value="Gravar"
+						actionListener="#{MBUsuario.novoUsuario}"
+						oncomplete="PF('dlgUsuNovo').hide(); tabelaUsuarios.clearFilters();"
+						update=":frmUsuListagem:tblUsuarios :msgGlobal" />
+					<p:commandButton value="Cancelar"
+						onclick="PF('dlgUsuNovo').hide();" />
+				</p:panelGrid>
+			</h:form>
+		</p:dialog>
+		
+		<p:dialog widgetVar="dlgUsuExcluir" closable="false" draggable="false"
+			resizable="false" modal="true" appendTo="@(body)"
+			header="Usuario - Excluir">
+			<h:form id="frmUsuExcluir">
+				<h:panelGrid id="pnlUsuExcluir" columns="2">
+					<h:outputLabel value="Código:" />
+					<h:outputText value="#{MBUsuario.usuario.codigo}" />
+
+					<h:outputLabel value="Descrição:" />
+					<h:outputText value="#{MBUsuario.usuario.descricao}" />
+				</h:panelGrid>
+				<p:panelGrid columns="2">
+					<p:commandButton value="Excluir"
+						actionListener="#{MBUsuario.excluir}"
+						oncomplete="PF('dlgUsuExcluir').hide(); tabelaUsuarios.clearFilters();"
+						update=":frmUsuListagem:tblUsuarios :msgGlobal" />
+					<p:commandButton value="Cancelar"
+						onclick="PF('dlgUsuExcluir').hide();" />
+				</p:panelGrid>
+			</h:form>
+		</p:dialog>
+		
+		<p:dialog widgetVar="dlgUsuEditar" closable="false" draggable="false"
+			resizable="false" modal="true" appendTo="@(body)"
+			header="Usuario - Editar">
+			<h:form id="frmUsuEditar">
+				<p:panelGrid id="pnlUsuEditar" columns="2">
+					<p:outputLabel value="Código" />
+					<h:outputText value="#{MBUsuario.usuario.codigo}" />
+
+					<p:outputLabel value="Descriçao:" />
+					<p:inputText value="#{MBUsuario.usuario.descricao}" size="30"
+						maxlength="50" />
+				</p:panelGrid>
+				<h:panelGrid columns="2">
+					<p:commandButton value="Editar"
+						actionListener="#{MBUsuario.editar}"
+						oncomplete="PF('dlgUsuEditar').hide(); tabelaUsuarios.clearFilters();"
+						update=":frmUsuListagem:tblUsuarios :msgGlobal" />
+					<p:commandButton value="Cancelar"
+						onclick="PF('dlgUsuEditar').hide();" />
+				</h:panelGrid>
+			</h:form>
+
+		</p:dialog>
+		
 	</ui:define>
 </ui:composition>

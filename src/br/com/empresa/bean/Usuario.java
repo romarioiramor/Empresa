@@ -144,5 +144,16 @@ public class Usuario {
 		public void setUsuario(String usuario) {
 			this.usuario = usuario;
 		}
+		@Override
+		public String toString() {
+			return "Usuario [nome=" + nome + ", email=" + email + ", senha=" + senha + ", cpf=" + cpf + ", telefone="
+					+ telefone + ", celular=" + celular + ", endereco=" + endereco + ", bairro=" + bairro + ", cidade="
+					+ cidade + ", uf=" + uf + ", cep=" + cep + ", instituicaoEnsino=" + instituicaoEnsino + ", polo="
+					+ polo + ", curso=" + curso + ", turno=" + turno + ", semestre=" + semestre + ", previsaoFormatura="
+					+ previsaoFormatura + ", anexoCurriculo=" + anexoCurriculo + ", codigo=" + codigo + ", usuario="
+					+ usuario + "]";
+		}
+		
+		
 		
 }
