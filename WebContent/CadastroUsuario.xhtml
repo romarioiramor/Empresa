@@ -23,10 +23,12 @@
 		<br/><br/>
 		<h:panelGrid columns="4">
 			<h:outputLabel value="Nome Completo: " />
-			<h:inputText maxlength="200" size="90" />
+			<h:inputText maxlength="200" size="45" />
 		
 			<h:outputLabel value="E-mail: " />
 			<h:inputText maxlength="200" size="50" />
+			<h:outputLabel value="Usuario: " />
+			<h:inputText maxlength="20" size="37" />
 			<h:outputLabel value="Senha: " />
 			<h:inputSecret maxlength="20" size="37" />			
 		
@@ -61,7 +63,7 @@
 			<br/><br/>
 		<h:panelGrid columns="4">
 			<h:outputLabel value="Instituição de Ensino: " />
-			<h:inputText maxlength="200" size="60"/>
+			<h:inputText maxlength="200" size="40"/>
 			<h:outputLabel value="Polo: "/>
 			<h:inputText maxlength="20" size="15"/>
 			<h:outputLabel value="Curso: "/>
@@ -91,7 +93,7 @@
     		<p:fileUpload value="#{fileUploadView.file}" mode="simple" skinSimple="true"/>   
    		 <br /> 
    		 <br />     
-    		<p:commandButton value="Salvar" ajax="false" action="#{fileUploadView.upload}" disabled="true" />
+    		<p:commandButton value="Salvar" ajax="false" action="#{fileUploadView.upload}" />
 		</h:form>
 
 
